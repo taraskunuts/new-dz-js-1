@@ -35,19 +35,3 @@
     lightboxImage.src = '';
     lightboxImage.alt = '';
   }
-  function keyPress(event) {
-    if (event.key === 'Escape') closeModal();
-    if (!lightbox.classList.contains('is-open')) return;
-    const currentIndex = galleryItems.findIndex(item => item.original === lightboxImage.src);
-    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        let direction;
-        if (event.key === 'ArrowRight') {
-          direction = 1;
-        } else {
-          direction = -1;
-        }
-        const newIndex = (currentIndex + direction + galleryItems.length) % galleryItems.length;
-        lightboxImage.src = galleryItems[newIndex].original;
-        lightboxImage.alt = galleryItems[newIndex].description;
-      }
-    }
